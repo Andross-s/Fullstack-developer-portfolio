@@ -1,0 +1,16 @@
+<svg width="480" height="480" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Andrii Skoropad avatar placeholder">
+  <defs>
+    <linearGradient id="avatarBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1c1006"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+  </defs>
+  <circle cx="240" cy="240" r="232" fill="url(#avatarBg)" stroke="url(#ring)" stroke-width="6"/>
+  <circle cx="240" cy="192" r="70" fill="none" stroke="#f97316" stroke-width="4"/>
+  <path d="M110 400c20-72 82-116 130-116s110 44 130 116" fill="none" stroke="#f97316" stroke-width="4" stroke-linecap="round"/>
+  <text x="240" y="250" font-family="Arial, sans-serif" font-size="18" fill="#f97316" text-anchor="middle" opacity="0.8">AS</text>
+</svg>
