@@ -8,7 +8,7 @@ import { useLocale } from "@/lib/i18n/context";
 import { createContactSchema, type ContactFormValues } from "@/lib/validation";
 import type { ContactStatus } from "@/types";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
 
 export function ContactForm() {
   const { dict } = useLocale();
