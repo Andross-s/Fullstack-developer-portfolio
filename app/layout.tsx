@@ -5,6 +5,7 @@ import { ThemeProvider, themeInitScript } from "@/lib/theme-context";
 import { LocaleProvider } from "@/lib/i18n/context";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import InteractiveBackground from "@/components/InteractiveBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -73,6 +74,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-full flex flex-col">
+        <InteractiveBackground />
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
