@@ -49,7 +49,7 @@ export function Hero({ dict }: { dict: Dictionary }) {
         <FadeIn delay={0.15} className="mx-auto w-56 sm:w-72 md:w-full">
           <div className="relative aspect-square w-full overflow-hidden rounded-full border border-border">
             <Image
-              src="/images/avatar-placeholder.svg"
+              src="/images/avatar-andrii.png"
               alt={dict.hero.avatarAlt}
               fill
               priority

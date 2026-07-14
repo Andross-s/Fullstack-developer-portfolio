@@ -37,6 +37,14 @@ export interface Dictionary {
     liveDemo: string;
     code: string;
     previewAlt: string;
+    detailsCta: string;
+    closeModal: string;
+    roleLabel: string;
+    periodLabel: string;
+    techStackLabel: string;
+    linksHeading: string;
+    galleryPrev: string;
+    galleryNext: string;
   };
   contact: {
     heading: string;
