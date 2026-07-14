@@ -30,10 +30,14 @@ export async function sendContactEmail(payload: ContactPayload) {
   }
 
   const smtpHost = process.env.SMTP_HOST ?? "";
+  const secure = process.env.SMTP_SECURE === "true";
   const transporter = nodemailer.createTransport({
     host: await resolveSmtpHost(smtpHost),
     port: Number(process.env.SMTP_PORT ?? 587),
-    secure: process.env.SMTP_SECURE === "true",
+    secure,
+    // When not using implicit TLS (port 465), require the STARTTLS upgrade
+    // to succeed rather than silently falling back to a plaintext connection.
+    requireTLS: !secure,
     tls: { servername: smtpHost },
     auth: {
       user: process.env.SMTP_USER,
