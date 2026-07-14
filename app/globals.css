@@ -74,3 +74,27 @@ body {
 .skip-link:focus {
   top: 1rem;
 }
+
+.project-gallery .splide__arrow {
+  background: var(--surface);
+  opacity: 0.9;
+}
+
+.project-gallery .splide__arrow:hover {
+  opacity: 1;
+  background: var(--accent-soft);
+}
+
+.project-gallery .splide__arrow svg {
+  fill: var(--accent);
+}
+
+.project-gallery .splide__pagination__page {
+  background: var(--border);
+  opacity: 1;
+}
+
+.project-gallery .splide__pagination__page.is-active {
+  background: var(--accent);
+  transform: scale(1.2);
+}

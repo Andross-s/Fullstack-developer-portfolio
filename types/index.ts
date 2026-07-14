@@ -5,19 +5,28 @@ export interface LocalizedText {
   ua: string;
 }
 
+export interface ProjectLink {
+  label: LocalizedText;
+  href: string;
+}
+
 export interface Project {
   id: string;
   title: string;
-  description: LocalizedText;
+  role?: LocalizedText;
+  period?: string;
+  summary: LocalizedText;
+  fullDescription: LocalizedText;
   stack: string[];
+  images: string[];
   liveUrl: string;
-  githubUrl?: string;
-  image: string;
+  links?: ProjectLink[];
 }
 
-export interface SkillItem {
-  name: string;
-  level: number;
+export interface SkillCategory {
+  id: string;
+  category: LocalizedText;
+  skills: string[];
 }
 
 export type SocialIcon = "github" | "linkedin" | "telegram" | "mail";

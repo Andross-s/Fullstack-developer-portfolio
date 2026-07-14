@@ -1,6 +1,6 @@
 import { FadeIn } from "@/components/FadeIn";
-import { SkillBadge } from "@/components/SkillBadge";
-import { skills } from "@/lib/data";
+import { SkillCategoryGroup } from "@/components/SkillCategoryGroup";
+import { skillCategories } from "@/lib/data";
 import type { Dictionary } from "@/lib/i18n/types";
 
 export function Skills({ dict }: { dict: Dictionary }) {
@@ -17,9 +17,9 @@ export function Skills({ dict }: { dict: Dictionary }) {
         </FadeIn>
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {skills.map((skill, index) => (
-            <FadeIn key={skill.name} delay={index * 0.05}>
-              <SkillBadge skill={skill} />
+          {skillCategories.map((category, index) => (
+            <FadeIn key={category.id} delay={index * 0.08}>
+              <SkillCategoryGroup category={category} />
             </FadeIn>
           ))}
         </div>
