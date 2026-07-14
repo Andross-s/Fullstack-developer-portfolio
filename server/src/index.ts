@@ -6,6 +6,10 @@ import { contactRouter } from "./routes/contact.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 
 const app = express();
+// Render (and most PaaS hosts) sit behind a reverse proxy that sets
+// X-Forwarded-For; without this, express-rate-limit can't trust that header
+// and throws on every request.
+app.set("trust proxy", 1);
 const PORT = Number(process.env.PORT ?? 4000);
 const allowedOrigins = (process.env.CORS_ORIGIN ?? "http://localhost:3000")
   .split(",")

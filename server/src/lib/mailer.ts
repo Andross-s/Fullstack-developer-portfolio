@@ -1,15 +1,18 @@
+import dns from "node:dns/promises";
+import net from "node:net";
 import nodemailer from "nodemailer";
 import type { ContactPayload } from "../validation/contactSchema.js";
 
-export const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT ?? 587),
-  secure: process.env.SMTP_SECURE === "true",
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
+// Some hosts (e.g. Render) advertise a non-functional IPv6 route: Nodemailer
+// resolves both A and AAAA records and picks one at random, so connecting by
+// hostname intermittently tries an unreachable IPv6 address for Gmail's SMTP
+// server (ENETUNREACH/ETIMEDOUT). Resolving to IPv4 ourselves avoids that;
+// `tls.servername` keeps SNI/certificate validation pinned to the real host.
+async function resolveSmtpHost(host: string) {
+  if (net.isIP(host)) return host;
+  const [address] = await dns.resolve4(host);
+  return address;
+}
 
 function escapeHtml(value: string) {
   return value
@@ -25,6 +28,18 @@ export async function sendContactEmail(payload: ContactPayload) {
   if (!receiver) {
     throw new Error("CONTACT_RECEIVER_EMAIL is not configured");
   }
+
+  const smtpHost = process.env.SMTP_HOST ?? "";
+  const transporter = nodemailer.createTransport({
+    host: await resolveSmtpHost(smtpHost),
+    port: Number(process.env.SMTP_PORT ?? 587),
+    secure: process.env.SMTP_SECURE === "true",
+    tls: { servername: smtpHost },
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  });
 
   const name = escapeHtml(payload.name);
   const email = escapeHtml(payload.email);
