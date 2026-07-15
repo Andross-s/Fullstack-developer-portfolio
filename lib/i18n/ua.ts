@@ -62,6 +62,9 @@ const ua: Dictionary = {
     emailPlaceholder: "you@example.com",
     messageLabel: "Повідомлення",
     messagePlaceholder: "Розкажіть, чим я можу допомогти...",
+    fileLabel: "Вкладення (необов'язково)",
+    fileHint: "JPG, PNG, WEBP або PDF, до 5MB",
+    fileRemoveLabel: "Видалити файл",
     submit: "Надіслати повідомлення",
     submitting: "Надсилання...",
     success: "Дякую! Ваше повідомлення надіслано, я відповім найближчим часом.",
@@ -73,6 +76,8 @@ const ua: Dictionary = {
       emailInvalid: "Введіть коректний email",
       messageMin: "Повідомлення має містити щонайменше 10 символів",
       messageMax: "Повідомлення занадто довге",
+      fileTooLarge: "Файл має бути не більше 5MB",
+      fileInvalidType: "Дозволені лише файли JPG, PNG, WEBP або PDF",
     },
   },
   footer: {

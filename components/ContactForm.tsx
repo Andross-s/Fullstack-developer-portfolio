@@ -1,11 +1,22 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CheckCircle2, Loader2, Send, TriangleAlert } from "lucide-react";
+import {
+  CheckCircle2,
+  Loader2,
+  Paperclip,
+  Send,
+  TriangleAlert,
+  X,
+} from "lucide-react";
 import { useLocale } from "@/lib/i18n/context";
-import { createContactSchema, type ContactFormValues } from "@/lib/validation";
+import {
+  ALLOWED_ATTACHMENT_TYPES,
+  createContactSchema,
+  type ContactFormValues,
+} from "@/lib/validation";
 import type { ContactStatus } from "@/types";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
@@ -13,6 +24,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
 export function ContactForm() {
   const { dict } = useLocale();
   const [status, setStatus] = useState<ContactStatus>("idle");
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const schema = useMemo(
     () => createContactSchema(dict.contact.validation),
@@ -23,24 +35,42 @@ export function ContactForm() {
     register,
     handleSubmit,
     reset,
+    resetField,
+    watch,
     formState: { errors, isSubmitting },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(schema),
   });
 
+  const { ref: fileFieldRef, ...fileField } = register("attachment");
+  const selectedFile = watch("attachment")?.[0];
+
+  const clearFile = () => {
+    resetField("attachment");
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  };
+
   const onSubmit = async (values: ContactFormValues) => {
     setStatus("loading");
     try {
+      const formData = new FormData();
+      formData.append("name", values.name);
+      formData.append("email", values.email);
+      formData.append("message", values.message);
+      if (values.attachment && values.attachment.length > 0) {
+        formData.append("attachment", values.attachment[0]);
+      }
+
       const res = await fetch(`${API_URL}/api/contact`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: formData,
       });
 
       if (!res.ok) throw new Error("Request failed");
 
       setStatus("success");
       reset();
+      if (fileInputRef.current) fileInputRef.current.value = "";
     } catch {
       setStatus("error");
     }
@@ -123,6 +153,56 @@ export function ContactForm() {
             className="mt-1.5 text-xs text-red-500"
           >
             {errors.message.message}
+          </p>
+        )}
+      </div>
+
+      <div>
+        <label
+          htmlFor="attachment"
+          className="mb-1.5 block text-sm font-medium text-foreground"
+        >
+          {dict.contact.fileLabel}
+        </label>
+        <div className="flex items-center gap-2">
+          <label
+            htmlFor="attachment"
+            className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-border bg-surface px-3.5 py-2.5 text-sm text-foreground transition-colors hover:border-accent"
+          >
+            <Paperclip className="h-4 w-4 shrink-0" aria-hidden="true" />
+            {selectedFile ? selectedFile.name : dict.contact.fileHint}
+          </label>
+          <input
+            id="attachment"
+            type="file"
+            accept={ALLOWED_ATTACHMENT_TYPES.join(",")}
+            className="sr-only"
+            aria-invalid={errors.attachment ? "true" : "false"}
+            aria-describedby={errors.attachment ? "attachment-error" : undefined}
+            {...fileField}
+            ref={(el) => {
+              fileFieldRef(el);
+              fileInputRef.current = el;
+            }}
+          />
+          {selectedFile && (
+            <button
+              type="button"
+              onClick={clearFile}
+              aria-label={dict.contact.fileRemoveLabel}
+              className="rounded-lg p-2 text-foreground/60 transition-colors hover:text-foreground"
+            >
+              <X className="h-4 w-4" aria-hidden="true" />
+            </button>
+          )}
+        </div>
+        {errors.attachment && (
+          <p
+            id="attachment-error"
+            role="alert"
+            className="mt-1.5 text-xs text-red-500"
+          >
+            {errors.attachment.message}
           </p>
         )}
       </div>

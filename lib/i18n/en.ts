@@ -62,6 +62,9 @@ const en: Dictionary = {
     emailPlaceholder: "you@example.com",
     messageLabel: "Message",
     messagePlaceholder: "Tell me how I can help...",
+    fileLabel: "Attachment (optional)",
+    fileHint: "JPG, PNG, WEBP or PDF, up to 5MB",
+    fileRemoveLabel: "Remove file",
     submit: "Send Message",
     submitting: "Sending...",
     success: "Thanks! Your message has been sent, I'll get back to you soon.",
@@ -73,6 +76,8 @@ const en: Dictionary = {
       emailInvalid: "Enter a valid email address",
       messageMin: "Message must be at least 10 characters",
       messageMax: "Message is too long",
+      fileTooLarge: "File must be 5MB or smaller",
+      fileInvalidType: "Only JPG, PNG, WEBP, or PDF files are allowed",
     },
   },
   footer: {

@@ -1,6 +1,12 @@
 import { Resend } from "resend";
 import type { ContactPayload } from "../validation/contactSchema.js";
 
+export interface ContactAttachment {
+  buffer: Buffer;
+  filename: string;
+  contentType: string;
+}
+
 function escapeHtml(value: string) {
   return value
     .replace(/&/g, "&amp;")
@@ -10,7 +16,10 @@ function escapeHtml(value: string) {
     .replace(/'/g, "&#39;");
 }
 
-export async function sendContactEmail(payload: ContactPayload) {
+export async function sendContactEmail(
+  payload: ContactPayload,
+  attachment?: ContactAttachment,
+) {
   const receiver = process.env.CONTACT_RECEIVER_EMAIL;
   if (!receiver) {
     throw new Error("CONTACT_RECEIVER_EMAIL is not configured");
@@ -34,6 +43,15 @@ export async function sendContactEmail(payload: ContactPayload) {
     subject: `New message from ${payload.name}`,
     text: `From: ${payload.name} <${payload.email}>\n\n${payload.message}`,
     html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong></p><p>${message}</p>`,
+    attachments: attachment
+      ? [
+          {
+            content: attachment.buffer,
+            filename: attachment.filename,
+            contentType: attachment.contentType,
+          },
+        ]
+      : undefined,
   });
 
   if (error) {

@@ -55,6 +55,9 @@ export interface Dictionary {
     emailPlaceholder: string;
     messageLabel: string;
     messagePlaceholder: string;
+    fileLabel: string;
+    fileHint: string;
+    fileRemoveLabel: string;
     submit: string;
     submitting: string;
     success: string;
@@ -66,6 +69,8 @@ export interface Dictionary {
       emailInvalid: string;
       messageMin: string;
       messageMax: string;
+      fileTooLarge: string;
+      fileInvalidType: string;
     };
   };
   footer: {

@@ -17,8 +17,16 @@ export async function handleContact(
     return;
   }
 
+  const attachment = req.file
+    ? {
+        buffer: req.file.buffer,
+        filename: req.file.originalname,
+        contentType: req.file.mimetype,
+      }
+    : undefined;
+
   try {
-    await sendContactEmail(parsed.data);
+    await sendContactEmail(parsed.data, attachment);
     res.status(200).json({ message: "Message sent" });
   } catch (err) {
     next(err);
