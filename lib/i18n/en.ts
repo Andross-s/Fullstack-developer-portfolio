@@ -19,28 +19,31 @@ const en: Dictionary = {
   },
   hero: {
     greeting: "Hi, I'm Andrii",
-    role: "Frontend Developer (FullStack, GOIT graduate)",
+    role: "Frontend / FullStack Developer",
     intro:
-      "I build fast, accessible, and polished web applications — from design to production deploy.",
+      "I create websites and web applications that load quickly, look flawless on any device, and help your business attract clients.",
     ctaProjects: "View Projects",
-    ctaContact: "Get in Touch",
+    ctaContact: "Discuss the project",
     avatarAlt: "Avatar of Andrii Skoropad",
   },
   about: {
     heading: "About Me",
     paragraphs: [
-      "I'm Andrii Skoropad, a Frontend/FullStack developer. I completed an intensive FullStack Developer program at GOIT, gaining hands-on experience building modern web applications — from responsive UI to Node.js back ends.",
-      "I enjoy turning designs into fast, accessible, well-structured interfaces, and digging into how things work under the hood — from REST APIs to deployment. I keep sharpening my skills through team and solo projects.",
+      "I am a Frontend/Full-Stack developer specializing in building modern web applications—from responsive layouts to server-side logic using Node.js.",
+      " My approach is simple: code should be not only functional but also fast, accessible, and maintainable for future product development. I consider every detail—from UX nuances to REST API architecture—to ensure the result aligns with actual business goals, not just the technical specifications.",
+      " I am open to collaborating on new projects, whether for one-off tasks or long-term partnerships.",
     ],
-    highlight: "GOIT · FullStack Developer",
+    highlight: "Available for freelance projects",
   },
   skills: {
     heading: "Skills",
-    subheading: "Technologies and tools I work with every day",
+    subheading:
+      "Technologies I use daily to build reliable and scalable products",
   },
   projects: {
     heading: "Projects",
-    subheading: "A few pieces from my portfolio",
+    subheading:
+      "Selected works demonstrating an approach to solving real-world problems",
     liveDemo: "Live Demo",
     code: "GitHub",
     previewAlt: "Project preview",
@@ -55,7 +58,8 @@ const en: Dictionary = {
   },
   contact: {
     heading: "Get in Touch",
-    subheading: "Have a proposal or a question? Send me a message.",
+    subheading:
+      "Do you have a project idea or need a consultation? Share the details — I'll get back to you within 24 hours.",
     nameLabel: "Name",
     namePlaceholder: "Your name",
     emailLabel: "Email",

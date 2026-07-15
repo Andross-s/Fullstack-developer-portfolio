@@ -2,7 +2,8 @@ import type { Project, SkillCategory, SocialLink } from "@/types";
 
 export const personalInfo = {
   name: "Andrii Skoropad",
-  linkedinUrl: "https://www.linkedin.com/in/andrii-skoropad-frontend-developer/",
+  linkedinUrl:
+    "https://www.linkedin.com/in/andrii-skoropad-frontend-developer/",
   githubUrl: "https://github.com/andross-s",
   telegramUrl: "https://t.me/andross_s",
   email: "andrey.andross@gmail.com",
@@ -38,18 +39,18 @@ export const projects: Project[] = [
     id: "ecotote",
     title: "EcoTote",
     summary: {
-      ua: "Інтернет-магазин екологічних сумок та аксесуарів з органічної бавовни, льону та перероблених матеріалів: каталог товарів, галерея та форма зворотного зв'язку.",
-      en: "An e-commerce site for eco-friendly tote bags and accessories made from organic cotton, linen, and recycled materials, with a product catalog, gallery, and contact form.",
+      ua: "Інтернет-магазин екотоварів з інтуїтивним каталогом, галереєю та формою зв'язку — приклад чистого UX для e-commerce.",
+      en: "An online store for eco-friendly products featuring an intuitive catalog, a gallery, and a contact form—an example of clean e-commerce UX.",
     },
     fullDescription: {
-      ua: "Інтернет-магазин екологічних сумок та аксесуарів з органічної бавовни, льону та перероблених матеріалів: каталог товарів, галерея та форма зворотного зв'язку.",
+      ua: "Інтернет-магазин екотоварів з інтуїтивним каталогом, галереєю та формою зв'язку — приклад чистого UX для e-commerce.",
       en: "An e-commerce site for eco-friendly tote bags and accessories made from organic cotton, linen, and recycled materials, with a product catalog, gallery, and contact form.",
     },
     stack: ["HTML", "CSS", "JavaScript"],
     images: [
-      "/images/projects/ecotote.svg",
-      "/images/projects/ecotote-2.svg",
-      "/images/projects/ecotote-3.svg",
+      "/images/projects/ecotote.jpg",
+      "/images/projects/ecotote-2.jpg",
+      "/images/projects/ecotote-3.jpg",
     ],
     liveUrl: "https://vfrost1310.github.io/project-ctf-group/",
     links: [
@@ -67,14 +68,14 @@ export const projects: Project[] = [
       en: "A music discovery platform for exploring artists, with filtering, an artist gallery, and a feedback form.",
     },
     fullDescription: {
-      ua: "Платформа для пошуку та відкриття музичних виконавців з фільтрацією, галереєю артистів та формою відгуків.",
-      en: "A music discovery platform for exploring artists, with filtering, an artist gallery, and a feedback form.",
+      ua: 'ArtistsHub — інтерактивна платформа для меломанів, яка допомагає відкривати нових виконавців і дізнаватись більше про улюблених артистів.\n\nРеалізовано динамічний каталог артистів із карточками (фото, жанрові теги, короткий біографічний опис, кнопка "Learn More"), пагінацію через "Load More" для поступового підвантаження контенту, а також блок відгуків користувачів зі слайдером-каруселлю та рейтингом.\n\nСекція "About" презентує місію продукту, а адаптивна hero-секція з колажем фото та CTA-кнопкою одразу занурює користувача в атмосферу музичного сервісу.\n\nОсоблива увага приділена responsive-верстці: мозаїчна сітка зображень, картки та навігація коректно адаптуються під мобільні пристрої.',
+      en: 'ArtistsHub is an interactive platform for music lovers that helps them discover new artists and learn more about their favorites.\n\nIt features a dynamic artist catalog with cards (photo, genre tags, a short bio, and a "Learn More" button), "Load More" pagination for progressively loading content, and a user reviews section with a carousel slider and star ratings.\n\nAn "About" section presents the product\'s mission, while a responsive hero section with a photo collage and a call-to-action button immediately immerses users in the music-discovery experience.\n\nSpecial attention was given to the responsive layout: the image mosaic grid, cards, and navigation all adapt correctly to mobile devices.',
     },
     stack: ["React", "Vite", "JavaScript"],
     images: [
-      "/images/projects/artistshub.svg",
-      "/images/projects/artistshub-2.svg",
-      "/images/projects/artistshub-3.svg",
+      "/images/projects/artistshub.jpg",
+      "/images/projects/artistshub-2.jpg",
+      "/images/projects/artistshub-3.jpg",
     ],
     liveUrl: "https://vladyslav-mohyla.github.io/Favorite-Artist/",
     links: [
@@ -88,18 +89,18 @@ export const projects: Project[] = [
     id: "nife-wars",
     title: "NiFe WARS: Last Defense",
     summary: {
-      ua: "Tower defense гра: стратегічне розміщення веж, керування ресурсами та система прокачки для захисту від хвиль ворогів.",
-      en: "A tower defense game featuring strategic tower placement, resource management, and an upgrade system to defend against waves of enemies.",
+      ua: "Промо-лендинг для tower defense гри NiFe WARS: Last Defense — стратегічне розміщення веж, прокачка та захист бази від хвиль ворогів.",
+      en: "Promotional landing page for the tower defense game *NiFe WARS: Last Defense* — featuring strategic tower placement, upgrades, and base defense against waves of enemies.",
     },
     fullDescription: {
-      ua: "Tower defense гра: стратегічне розміщення веж, керування ресурсами та система прокачки для захисту від хвиль ворогів.",
-      en: "A tower defense game featuring strategic tower placement, resource management, and an upgrade system to defend against waves of enemies.",
+      ua: 'NiFe WARS: Last Defense — маркетинговий лендинг мобільної tower defense гри з детальним описом ігрових механік та закликом до завантаження.\n\nСайт послідовно розкриває цінність продукту: hero-секція з мокапом геймплею та кнопкою Google Play, блок "How to Play" з покроковим поясненням стратегії (побудова захисту, прокачка юнітів, управління ресурсами), сітка функцій з іконками (типи веж, прогресія, ворожі хвилі), а також фотогалерея скріншотів геймплею з каруселлю.\n\nДовіру підсилюють відгуки гравців з рейтингом та розділ FAQ з розгортуваними відповідями (accordion) на типові запитання.\n\nОсоблива увага приділена візуальній подачі: неонова кольорова гама, контрастні world/light-секції для ритму сторінки та адаптивна верстка під мобільні пристрої.',
+      en: 'NiFe WARS: Last Defense is a marketing landing page for a mobile tower defense game, featuring a detailed breakdown of the game mechanics and a call to download.\n\nThe site builds up the product\'s value step by step: a hero section with a gameplay mockup and a Google Play button, a "How to Play" block that walks through the strategy (building defenses, upgrading units, managing resources), a feature grid with icons (tower types, progression, enemy waves), and a gameplay screenshot gallery with a carousel.\n\nTrust is reinforced with rated player reviews and an FAQ section with expandable (accordion) answers to common questions.\n\nSpecial attention was given to the visual presentation: a neon color palette, contrasting dark/light sections for page rhythm, and a responsive layout for mobile devices.',
     },
-    stack: ["React", "Vite", "Game Dev"],
+    stack: ["React", "Vite", "Game Dev / Landing Page"],
     images: [
-      "/images/projects/nife-wars.svg",
-      "/images/projects/nife-wars-2.svg",
-      "/images/projects/nife-wars-3.svg",
+      "/images/projects/nife-wars.jpg",
+      "/images/projects/nife-wars-2.jpg",
+      "/images/projects/nife-wars-3.jpg",
     ],
     liveUrl: "https://andross-s.github.io/STP-12570/",
     links: [
@@ -146,9 +147,9 @@ export const projects: Project[] = [
       "Swagger",
     ],
     images: [
-      "/images/projects/tasteorama.svg",
-      "/images/projects/tasteorama-2.svg",
-      "/images/projects/tasteorama-3.svg",
+      "/images/projects/tasteorama.jpg",
+      "/images/projects/tasteorama-2.jpg",
+      "/images/projects/tasteorama-3.jpg",
     ],
     liveUrl: "https://final-project-fullstack-force-front.vercel.app/",
     links: [
@@ -174,15 +175,21 @@ export const projects: Project[] = [
       en: "A catalog of camper vans and travel trailers with detailed listing cards, filters, and easy browsing of the inventory.",
     },
     fullDescription: {
-      ua: "Каталог кемперів та трейлерів для подорожей з детальними картками, фільтрами та зручною навігацією по асортименту.",
-      en: "A catalog of camper vans and travel trailers with detailed listing cards, filters, and easy browsing of the inventory.",
+      ua: 'TravelTrucks — сервіс для пошуку та оренди кемперів, побудований навколо зручного каталогу та детальних карток транспорту.\n\nГоловна сторінка зустрічає атмосферним hero-блоком із закликом до дії, що веде в каталог. Сама сторінка каталогу пропонує фільтрацію за локацією, типом кузова (Alcove, Panel Van, Integrated, Semi Integrated), типом двигуна (дизель, бензин, гібрид, електро) та трансмісією, а також пагінацію через "Load more".\n\nКожен кемпер має власну детальну сторінку: галерея фото з мініатюрами, опис, повний перелік характеристик (розміри, об\'єм бака, витрата пального), бейджі зручностей (кухня, санвузол, кондиціонер) та блок відгуків користувачів із рейтингом.\n\nЗавершує сторінку форма бронювання — інтерфейс дозволяє користувачу одразу залишити заявку на обраний кемпер.',
+      en: 'TravelTrucks is a service for finding and renting camper vans, built around a convenient catalog and detailed vehicle cards.\n\nThe homepage greets visitors with an atmospheric hero block and a call-to-action leading into the catalog. The catalog page itself offers filtering by location, camper form (Alcove, Panel Van, Integrated, Semi Integrated), engine type (diesel, petrol, hybrid, electric), and transmission, along with "Load more" pagination.\n\nEach camper has its own detail page: a photo gallery with thumbnails, a description, a full list of specifications (dimensions, tank volume, fuel consumption), amenity badges (kitchen, bathroom, air conditioning), and a user reviews section with ratings.\n\nThe page concludes with a booking form, letting users submit a request for the selected camper right away.',
     },
     stack: ["React", "JavaScript", "REST API"],
     images: [
-      "/images/projects/travel-trucks.svg",
-      "/images/projects/travel-trucks-2.svg",
-      "/images/projects/travel-trucks-3.svg",
+      "/images/projects/travel-trucks.jpg",
+      "/images/projects/travel-trucks-2.jpg",
+      "/images/projects/travel-trucks-3.jpg",
     ],
     liveUrl: "https://project-travel-trucks-seven.vercel.app/",
+    links: [
+      {
+        label: { en: "GitHub", ua: "GitHub" },
+        href: "https://github.com/Andross-s/project-TravelTrucks",
+      },
+    ],
   },
 ];
