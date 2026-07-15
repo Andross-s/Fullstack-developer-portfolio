@@ -26,15 +26,17 @@ export const metadata: Metadata = {
     template: "%s | Andrii Skoropad",
   },
   description:
-    "Portfolio of Andrii Skoropad — a Frontend (FullStack) developer and GOIT graduate. Projects built with React, Next.js, Node.js and Express.",
+    "Frontend/FullStack developer building fast, accessible web apps with React, Next.js and Node.js. Available for new projects — let's bring your idea to life.",
   keywords: [
     "Andrii Skoropad",
     "Frontend Developer",
     "FullStack Developer",
-    "React",
-    "Next.js",
+    "React Developer",
+    "Next.js Developer",
     "TypeScript",
     "GOIT",
+    "Web Development",
+    "Hire Frontend Developer",
   ],
   authors: [{ name: "Andrii Skoropad" }],
   icons: {
@@ -43,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Andrii Skoropad — Frontend / FullStack Developer",
     description:
-      "Portfolio of Andrii Skoropad — a Frontend (FullStack) developer and GOIT graduate.",
+      "I build fast, reliable web apps that help businesses grow. Explore my work in React, Next.js and Node.js.",
     url: siteUrl,
     siteName: "Andrii Skoropad Portfolio",
     images: [{ url: "/images/og-image.svg", width: 1200, height: 630 }],
@@ -54,7 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Andrii Skoropad — Frontend / FullStack Developer",
     description:
-      "Portfolio of Andrii Skoropad — a Frontend (FullStack) developer and GOIT graduate.",
+      "I build fast, reliable web apps that help businesses grow. Explore my work in React, Next.js and Node.js.",
     images: ["/images/og-image.svg"],
   },
 };

@@ -56,7 +56,7 @@ export function ProjectDetailModal({
           )}
         </div>
 
-        <p className="text-sm leading-relaxed text-muted-foreground">
+        <p className="whitespace-pre-line text-sm leading-relaxed text-muted-foreground">
           {project.fullDescription[locale]}
         </p>
 
