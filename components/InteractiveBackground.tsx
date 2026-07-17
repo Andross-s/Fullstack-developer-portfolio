@@ -2,35 +2,6 @@
 
 import { useEffect, useRef } from 'react';
 
-/**
- * InteractiveBackground
- * ----------------------
- * Fixed, full-viewport canvas background: a quiet "network" of nodes
- * that drift slowly and connect when close together — a nod to
- * component graphs / dependency trees, fitting a fullstack dev portfolio.
- * The cursor gently pulls nearby nodes toward it and brightens their links.
- *
- * Theme-aware: colors are read live from this site's own CSS variables
- * (--foreground, --muted-foreground, --accent, defined in globals.css and
- * flipped by the `.dark` class), so the background always matches the site's
- * actual palette — light or dark — and stays in sync if those variables
- * change later. No hardcoded colors, no re-render needed on toggle: each
- * animation frame just re-reads the current values.
- *
- * Usage:
- *   Drop this file in e.g. `components/InteractiveBackground.tsx` and render
- *   it once, near the top of your root layout, BEFORE your page content:
- *
- *     <body>
- *       <InteractiveBackground />
- *       {children}
- *     </body>
- *
- *   It's `position: fixed; inset: 0; z-index: -1; pointer-events: none`,
- *   so it never blocks clicks and always sits behind your content —
- *   you don't need to change anything else on the page.
- */
-
 type Node = {
   x: number;
   y: number;
@@ -68,13 +39,6 @@ export default function InteractiveBackground() {
 
     const mouse = { x: -9999, y: -9999, active: false };
 
-    // ---- theme colors -----------------------------------------------
-    // Read straight from the site's own CSS variables (globals.css) rather
-    // than hardcoding hex here, so this stays in sync automatically —
-    // including if the palette changes later:
-    //   --foreground, --muted-foreground, --accent
-    // Each resolves differently under `.dark`, so re-reading after the
-    // theme class flips is all that's needed; no separate light/dark maps.
     function hexToRgba(hex: string, alpha: number): string {
       const clean = hex.trim().replace('#', '');
       const full =
@@ -103,7 +67,6 @@ export default function InteractiveBackground() {
       };
     }
 
-    // ---- setup --------------------------------------------------------
     function resize() {
       if (!canvas) return;
       width = window.innerWidth;
@@ -129,7 +92,6 @@ export default function InteractiveBackground() {
       const c = palette();
       ctx!.clearRect(0, 0, width, height);
 
-      // update
       for (const n of nodes) {
         if (!prefersReducedMotion) {
           n.x += n.vx;
@@ -150,7 +112,6 @@ export default function InteractiveBackground() {
         }
       }
 
-      // links
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const a = nodes[i];
@@ -176,7 +137,6 @@ export default function InteractiveBackground() {
       }
       ctx!.globalAlpha = 1;
 
-      // cursor glow
       if (mouse.active) {
         const gradient = ctx!.createRadialGradient(
           mouse.x,
@@ -197,7 +157,6 @@ export default function InteractiveBackground() {
         );
       }
 
-      // node glyphs
       ctx!.fillStyle = c.dot;
       ctx!.font = c.font;
       ctx!.textAlign = 'center';
@@ -209,7 +168,6 @@ export default function InteractiveBackground() {
       animationId = requestAnimationFrame(step);
     }
 
-    // ---- listeners ------------------------------------------------------
     function handlePointerMove(e: PointerEvent) {
       mouse.x = e.clientX;
       mouse.y = e.clientY;

@@ -1,26 +1,28 @@
 # Portfolio Contact API
 
 Окремий Express-сервіс (TypeScript), який приймає повідомлення з форми зворотного зв'язку
-на фронтенді та надсилає їх на пошту через Nodemailer.
+на фронтенді та надсилає їх на пошту через Resend.
 
 ## Локальний запуск
 
 ```bash
 cd server
 npm install
-cp .env.example .env   # заповнити SMTP_* та CONTACT_RECEIVER_EMAIL
+cp .env.example .env   # заповнити RESEND_API_KEY та CONTACT_RECEIVER_EMAIL
 npm run dev
 ```
 
 Сервер стартує на `http://localhost:4000`. Ендпоінт: `POST /api/contact`
-з тілом `{ "name": string, "email": string, "message": string }`.
+з тілом (multipart/form-data) `{ name: string, email: string, message: string, attachment?: File }`.
 
 Перевірка здоров'я: `GET /health`.
 
 ## Змінні середовища
 
-Див. `.env.example`. Для Gmail потрібен App Password (не звичайний пароль облікового
-запису) — увімкніть 2FA в Google-акаунті та створіть пароль застосунку в налаштуваннях безпеки.
+Див. `.env.example`. Потрібен API-ключ Resend (https://resend.com) — зареєструйтесь
+і створіть ключ у розділі API Keys. Стандартна адреса відправника (`onboarding@resend.dev`)
+працює без верифікації домену, але може надсилати листи лише на пошту, що прив'язана
+до акаунта Resend; для відправки з власної адреси верифікуйте домен у Resend.
 
 ## Деплой на Render
 
