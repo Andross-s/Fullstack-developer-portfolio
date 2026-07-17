@@ -27,11 +27,20 @@ export function ProjectGallery({
       type: "loop",
       arrows: true,
       pagination: true,
+      gap: "1rem",
       i18n: { prev: prevLabel, next: nextLabel },
     });
     splide.mount();
 
+    // The modal is still mid scale-in transition when this mounts; Splide
+    // measures layout once and a CSS transform doesn't trigger its resize
+    // observer, so force a remeasure once the entrance transition settles.
+    const refreshTimeout = window.setTimeout(() => {
+      splide.refresh();
+    }, 250);
+
     return () => {
+      window.clearTimeout(refreshTimeout);
       splide.destroy();
     };
   }, [images, prevLabel, nextLabel]);
@@ -44,7 +53,7 @@ export function ProjectGallery({
           alt={alt}
           fill
           sizes="(min-width: 1024px) 640px, 100vw"
-          className="object-cover"
+          className="object-cover object-top"
         />
       </div>
     );
@@ -62,7 +71,7 @@ export function ProjectGallery({
                   alt={`${alt} ${index + 1}`}
                   fill
                   sizes="(min-width: 1024px) 640px, 100vw"
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
             </li>
