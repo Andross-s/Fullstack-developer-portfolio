@@ -31,8 +31,6 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const stored = window.localStorage.getItem(STORAGE_KEY) as Locale | null;
     if (stored === "en" || stored === "ua") {
-      // Syncs the default locale with the user's saved preference after
-      // mount, avoiding a server/client hydration mismatch.
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setLocaleState(stored);
     }

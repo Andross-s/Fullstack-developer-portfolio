@@ -32,9 +32,6 @@ export function ProjectGallery({
     });
     splide.mount();
 
-    // The modal is still mid scale-in transition when this mounts; Splide
-    // measures layout once and a CSS transform doesn't trigger its resize
-    // observer, so force a remeasure once the entrance transition settles.
     const refreshTimeout = window.setTimeout(() => {
       splide.refresh();
     }, 250);

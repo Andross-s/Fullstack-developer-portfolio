@@ -1,6 +1,5 @@
 import multer from "multer";
 
-// Keep in sync with lib/validation.ts on the frontend.
 export const MAX_ATTACHMENT_BYTES = 5 * 1024 * 1024;
 export const ALLOWED_ATTACHMENT_TYPES = [
   "image/jpeg",
