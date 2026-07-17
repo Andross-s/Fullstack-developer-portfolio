@@ -89,6 +89,12 @@ body {
   fill: var(--accent);
 }
 
+@media (max-width: 1023.98px) {
+  .project-gallery .splide__arrows {
+    display: none;
+  }
+}
+
 .project-gallery .splide__pagination__page {
   background: var(--border);
   opacity: 1;
