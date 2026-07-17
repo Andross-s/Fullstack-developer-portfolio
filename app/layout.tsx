@@ -17,7 +17,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL &&
+    `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`) ||
+  (process.env.VERCEL_URL && `https://${process.env.VERCEL_URL}`) ||
+  "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -48,7 +53,7 @@ export const metadata: Metadata = {
       "I build fast, reliable web apps that help businesses grow. Explore my work in React, Next.js and Node.js.",
     url: siteUrl,
     siteName: "Andrii Skoropad Portfolio",
-    images: [{ url: "/images/og-image.svg", width: 1200, height: 630 }],
+    images: [{ url: "/images/og-image.png", width: 1200, height: 630 }],
     locale: "en_US",
     type: "website",
   },
@@ -57,7 +62,7 @@ export const metadata: Metadata = {
     title: "Andrii Skoropad — Frontend / FullStack Developer",
     description:
       "I build fast, reliable web apps that help businesses grow. Explore my work in React, Next.js and Node.js.",
-    images: ["/images/og-image.svg"],
+    images: ["/images/og-image.png"],
   },
 };
 
