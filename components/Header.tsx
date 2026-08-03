@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Download, Menu, X } from "lucide-react";
 import { useLocale } from "@/lib/i18n/context";
+import { RESUME_URL } from "@/lib/resume";
 import { ThemeToggle } from "./ThemeToggle";
 import { LocaleToggle } from "./LocaleToggle";
 import { cn } from "@/lib/utils";
@@ -44,6 +45,14 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
+          <a
+            href={RESUME_URL}
+            download
+            aria-label={dict.nav.resume}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-accent hover:text-accent"
+          >
+            <Download className="h-4 w-4" aria-hidden="true" />
+          </a>
           <LocaleToggle />
           <ThemeToggle />
         </div>
@@ -86,6 +95,14 @@ export function Header() {
             </a>
           ))}
           <div className="mt-2 flex items-center gap-3 px-2">
+            <a
+              href={RESUME_URL}
+              download
+              aria-label={dict.nav.resume}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground transition-colors hover:border-accent hover:text-accent"
+            >
+              <Download className="h-4 w-4" aria-hidden="true" />
+            </a>
             <LocaleToggle />
             <ThemeToggle />
           </div>

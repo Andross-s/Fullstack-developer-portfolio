@@ -16,6 +16,7 @@ const en: Dictionary = {
     openMenu: "Open menu",
     closeMenu: "Close menu",
     skipToContent: "Skip to main content",
+    resume: "Resume",
   },
   hero: {
     greeting: "Hi, I'm Andrii",
@@ -24,6 +25,7 @@ const en: Dictionary = {
       "I create websites and web applications that load quickly, look flawless on any device, and help your business attract clients.",
     ctaProjects: "View Projects",
     ctaContact: "Discuss the project",
+    ctaResume: "Download CV",
     avatarAlt: "Avatar of Andrii Skoropad",
   },
   about: {

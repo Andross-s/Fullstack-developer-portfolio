@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Download, Mail } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
+import { RESUME_URL } from "@/lib/resume";
 import type { Dictionary } from "@/lib/i18n/types";
 
 export function Hero({ dict }: { dict: Dictionary }) {
@@ -42,6 +43,14 @@ export function Hero({ dict }: { dict: Dictionary }) {
             >
               <Mail className="h-4 w-4" aria-hidden="true" />
               {dict.hero.ctaContact}
+            </a>
+            <a
+              href={RESUME_URL}
+              download
+              className="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              <Download className="h-4 w-4" aria-hidden="true" />
+              {dict.hero.ctaResume}
             </a>
           </div>
         </FadeIn>
