@@ -13,6 +13,7 @@ export interface Dictionary {
     openMenu: string;
     closeMenu: string;
     skipToContent: string;
+    resume: string;
   };
   hero: {
     greeting: string;
@@ -20,6 +21,7 @@ export interface Dictionary {
     intro: string;
     ctaProjects: string;
     ctaContact: string;
+    ctaResume: string;
     avatarAlt: string;
   };
   about: {
