@@ -4,7 +4,7 @@ import type { Dictionary } from "@/lib/i18n/types";
 
 export function About({ dict }: { dict: Dictionary }) {
   return (
-    <section id="about" className="scroll-mt-20 py-24">
+    <section id="about" className="scroll-mt-20 py-4 md:py-8">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">

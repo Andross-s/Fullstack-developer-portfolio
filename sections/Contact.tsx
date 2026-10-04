@@ -16,7 +16,7 @@ const iconMap: Record<SocialIcon, ComponentType<SVGProps<SVGSVGElement>>> = {
 
 export function Contact({ dict }: { dict: Dictionary }) {
   return (
-    <section id="contact" className="scroll-mt-20 bg-surface-muted/40 py-24">
+    <section id="contact" className="scroll-mt-20 bg-surface-muted/40 py-4 md:py-8">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <FadeIn>
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
