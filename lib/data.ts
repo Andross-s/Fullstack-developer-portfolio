@@ -25,92 +25,69 @@ export const skillCategories: SkillCategory[] = [
   {
     id: "frameworks",
     category: { en: "Frameworks & Libraries", ua: "Фреймворки та бібліотеки" },
-    skills: ["React", "Next.js", "Node.js", "Express"],
+    skills: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "Express",
+      "Zustand",
+      "TanStack Query",
+    ],
   },
   {
     id: "tools",
     category: { en: "Tools & Styling", ua: "Інструменти та стилізація" },
-    skills: ["Tailwind CSS", "Git"],
+    skills: ["Tailwind CSS", "Git", "MongoDB", "Zod", "JWT"],
   },
 ];
 
 export const projects: Project[] = [
-  {
-    id: "ecotote",
-    title: "EcoTote",
+{
+    id: "naturall",
+    title: "NaturALL",
+    role: { en: "Fullstack Developer", ua: "Фулстек-розробник" },
+    period: "08–10.2026",
     summary: {
-      ua: "Інтернет-магазин екотоварів з інтуїтивним каталогом, галереєю та формою зв'язку — приклад чистого UX для e-commerce.",
-      en: "An online store for eco-friendly products featuring an intuitive catalog, a gallery, and a contact form—an example of clean e-commerce UX.",
+      ua: "Fullstack інтернет-магазин органіки NaturALL у Батумі: три мови, каталог і рецепти, кошик/чекаут, Google-автентифікація, оплата Flitt, лояльність та адмін-CMS.",
+      en: "Fullstack organic e-commerce for NaturALL in Batumi: trilingual shop, recipes, cart/checkout, Google auth, Flitt payments, loyalty, and admin CMS.",
     },
     fullDescription: {
-      ua: "Інтернет-магазин екотоварів з інтуїтивним каталогом, галереєю та формою зв'язку — приклад чистого UX для e-commerce.",
-      en: "An e-commerce site for eco-friendly tote bags and accessories made from organic cotton, linen, and recycled materials, with a product catalog, gallery, and contact form.",
+      ua: "NaturALL — fullstack-платформа органічного e-commerce для магазину в Батумі (live: naturall.ge) з локалями ka/en/ru. Користувачі переглядають каталог і категорії, читають рецепти з інгредієнтами-товарами (додавання в кошик), оформлюють замовлення з кур'єром у Батумі або самовивозом.\n\nЄ реєстрація/логін (email + Google), JWT access/refresh, скидання пароля, адреси, історія замовлень, налаштування сповіщень і знижки лояльності за накопиченими покупками (3%/5%/10%). Онлайн-оплата — Flitt hosted checkout.\n\nАдмінка: аналітика, CRUD товарів/категорій/рецептів, промо й hero-карусель, замовлення з refund через Flitt, користувачі, email/Telegram-кампанії. Фронт: Next.js 14, next-intl, Zustand, TanStack Query, Axios, React Hook Form, Zod, Tailwind. Бек: Express 5, MongoDB/Mongoose, Zod, bcrypt/JWT, Helmet, Multer + Cloudinary, Resend, Swagger.",
+      en: "NaturALL is a fullstack organic e-commerce platform for a Batumi storefront (live at naturall.ge), with Georgian, English, and Russian locales. Shoppers browse categories and products, follow recipes with ingredients that can be added to the cart, use a guest or authenticated cart, and check out with Batumi courier delivery or store pickup.\n\nAccounts support email/password and Google Sign-In with JWT access/refresh tokens, password reset, saved addresses, order history, notification preferences, and a spend-based loyalty discount (3%/5%/10%). Card payments go through Flitt hosted checkout.\n\nThe admin panel covers dashboard and analytics, products/categories/recipes, promo calendar and hero slides, orders with Flitt refunds, users, and email/Telegram campaigns. Frontend: Next.js 14 App Router, next-intl, Zustand, TanStack Query, Axios, React Hook Form, Zod, Tailwind. Backend: Express 5 REST API, MongoDB/Mongoose, Zod validation, bcrypt/JWT, Helmet and rate limiting, Multer + Cloudinary, Resend, Swagger.",
     },
-    stack: ["HTML", "CSS", "JavaScript"],
+    stack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "next-intl",
+      "Zustand",
+      "TanStack Query",
+      "Axios",
+      "React Hook Form",
+      "Zod",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Mongoose",
+      "JWT",
+      "Google OAuth",
+      "Flitt",
+      "Resend",
+      "Cloudinary",
+      "Swagger",
+      "Recharts",
+    ],
     images: [
-      "/images/projects/ecotote.jpg",
-      "/images/projects/ecotote-2.jpg",
-      "/images/projects/ecotote-3.jpg",
+      "/images/projects/naturall.jpg",
+      "/images/projects/naturall-2.jpg",
+      "/images/projects/naturall-3.jpg",
+      "/images/projects/naturall-4.jpg",
+      "/images/projects/naturall-5.jpg",
     ],
-    liveUrl: "https://vfrost1310.github.io/project-ctf-group/",
-    links: [
-      {
-        label: { en: "GitHub", ua: "GitHub" },
-        href: "https://github.com/vfrost1310/project-ctf-group",
-      },
-    ],
+    liveUrl: "https://www.naturall.ge/ru",
   },
-  {
-    id: "artistshub",
-    title: "ArtistsHub",
-    summary: {
-      ua: "Платформа для пошуку та відкриття музичних виконавців з фільтрацією, галереєю артистів та формою відгуків.",
-      en: "A music discovery platform for exploring artists, with filtering, an artist gallery, and a feedback form.",
-    },
-    fullDescription: {
-      ua: 'ArtistsHub — інтерактивна платформа для меломанів, яка допомагає відкривати нових виконавців і дізнаватись більше про улюблених артистів.\n\nРеалізовано динамічний каталог артистів із карточками (фото, жанрові теги, короткий біографічний опис, кнопка "Learn More"), пагінацію через "Load More" для поступового підвантаження контенту, а також блок відгуків користувачів зі слайдером-каруселлю та рейтингом.\n\nСекція "About" презентує місію продукту, а адаптивна hero-секція з колажем фото та CTA-кнопкою одразу занурює користувача в атмосферу музичного сервісу.\n\nОсоблива увага приділена responsive-верстці: мозаїчна сітка зображень, картки та навігація коректно адаптуються під мобільні пристрої.',
-      en: 'ArtistsHub is an interactive platform for music lovers that helps them discover new artists and learn more about their favorites.\n\nIt features a dynamic artist catalog with cards (photo, genre tags, a short bio, and a "Learn More" button), "Load More" pagination for progressively loading content, and a user reviews section with a carousel slider and star ratings.\n\nAn "About" section presents the product\'s mission, while a responsive hero section with a photo collage and a call-to-action button immediately immerses users in the music-discovery experience.\n\nSpecial attention was given to the responsive layout: the image mosaic grid, cards, and navigation all adapt correctly to mobile devices.',
-    },
-    stack: ["React", "Vite", "JavaScript"],
-    images: [
-      "/images/projects/artistshub.jpg",
-      "/images/projects/artistshub-2.jpg",
-      "/images/projects/artistshub-3.jpg",
-    ],
-    liveUrl: "https://vladyslav-mohyla.github.io/Favorite-Artist/",
-    links: [
-      {
-        label: { en: "GitHub", ua: "GitHub" },
-        href: "https://github.com/vladyslav-mohyla/Favorite-Artist",
-      },
-    ],
-  },
-  {
-    id: "nife-wars",
-    title: "NiFe WARS: Last Defense",
-    summary: {
-      ua: "Промо-лендинг для tower defense гри NiFe WARS: Last Defense — стратегічне розміщення веж, прокачка та захист бази від хвиль ворогів.",
-      en: "Promotional landing page for the tower defense game *NiFe WARS: Last Defense* — featuring strategic tower placement, upgrades, and base defense against waves of enemies.",
-    },
-    fullDescription: {
-      ua: 'NiFe WARS: Last Defense — маркетинговий лендинг мобільної tower defense гри з детальним описом ігрових механік та закликом до завантаження.\n\nСайт послідовно розкриває цінність продукту: hero-секція з мокапом геймплею та кнопкою Google Play, блок "How to Play" з покроковим поясненням стратегії (побудова захисту, прокачка юнітів, управління ресурсами), сітка функцій з іконками (типи веж, прогресія, ворожі хвилі), а також фотогалерея скріншотів геймплею з каруселлю.\n\nДовіру підсилюють відгуки гравців з рейтингом та розділ FAQ з розгортуваними відповідями (accordion) на типові запитання.\n\nОсоблива увага приділена візуальній подачі: неонова кольорова гама, контрастні world/light-секції для ритму сторінки та адаптивна верстка під мобільні пристрої.',
-      en: 'NiFe WARS: Last Defense is a marketing landing page for a mobile tower defense game, featuring a detailed breakdown of the game mechanics and a call to download.\n\nThe site builds up the product\'s value step by step: a hero section with a gameplay mockup and a Google Play button, a "How to Play" block that walks through the strategy (building defenses, upgrading units, managing resources), a feature grid with icons (tower types, progression, enemy waves), and a gameplay screenshot gallery with a carousel.\n\nTrust is reinforced with rated player reviews and an FAQ section with expandable (accordion) answers to common questions.\n\nSpecial attention was given to the visual presentation: a neon color palette, contrasting dark/light sections for page rhythm, and a responsive layout for mobile devices.',
-    },
-    stack: ["React", "Vite", "Game Dev / Landing Page"],
-    images: [
-      "/images/projects/nife-wars.jpg",
-      "/images/projects/nife-wars-2.jpg",
-      "/images/projects/nife-wars-3.jpg",
-    ],
-    liveUrl: "https://andross-s.github.io/STP-12570/",
-    links: [
-      {
-        label: { en: "GitHub", ua: "GitHub" },
-        href: "https://github.com/andross-s/STP-12570",
-      },
-    ],
-  },
-  {
+{
     id: "tasteorama",
     title: "Tasteorama",
     role: { en: "Team Lead", ua: "Тімлід" },
@@ -167,7 +144,7 @@ export const projects: Project[] = [
       },
     ],
   },
-  {
+{
     id: "travel-trucks",
     title: "TravelTrucks",
     summary: {
@@ -189,6 +166,81 @@ export const projects: Project[] = [
       {
         label: { en: "GitHub", ua: "GitHub" },
         href: "https://github.com/Andross-s/project-TravelTrucks",
+      },
+    ],
+  },
+{
+    id: "artistshub",
+    title: "ArtistsHub",
+    summary: {
+      ua: "Платформа для пошуку та відкриття музичних виконавців з фільтрацією, галереєю артистів та формою відгуків.",
+      en: "A music discovery platform for exploring artists, with filtering, an artist gallery, and a feedback form.",
+    },
+    fullDescription: {
+      ua: 'ArtistsHub — інтерактивна платформа для меломанів, яка допомагає відкривати нових виконавців і дізнаватись більше про улюблених артистів.\n\nРеалізовано динамічний каталог артистів із карточками (фото, жанрові теги, короткий біографічний опис, кнопка "Learn More"), пагінацію через "Load More" для поступового підвантаження контенту, а також блок відгуків користувачів зі слайдером-каруселлю та рейтингом.\n\nСекція "About" презентує місію продукту, а адаптивна hero-секція з колажем фото та CTA-кнопкою одразу занурює користувача в атмосферу музичного сервісу.\n\nОсоблива увага приділена responsive-верстці: мозаїчна сітка зображень, картки та навігація коректно адаптуються під мобільні пристрої.',
+      en: 'ArtistsHub is an interactive platform for music lovers that helps them discover new artists and learn more about their favorites.\n\nIt features a dynamic artist catalog with cards (photo, genre tags, a short bio, and a "Learn More" button), "Load More" pagination for progressively loading content, and a user reviews section with a carousel slider and star ratings.\n\nAn "About" section presents the product\'s mission, while a responsive hero section with a photo collage and a call-to-action button immediately immerses users in the music-discovery experience.\n\nSpecial attention was given to the responsive layout: the image mosaic grid, cards, and navigation all adapt correctly to mobile devices.',
+    },
+    stack: ["React", "Vite", "JavaScript"],
+    images: [
+      "/images/projects/artistshub.jpg",
+      "/images/projects/artistshub-2.jpg",
+      "/images/projects/artistshub-3.jpg",
+    ],
+    liveUrl: "https://vladyslav-mohyla.github.io/Favorite-Artist/",
+    links: [
+      {
+        label: { en: "GitHub", ua: "GitHub" },
+        href: "https://github.com/vladyslav-mohyla/Favorite-Artist",
+      },
+    ],
+  },
+{
+    id: "nife-wars",
+    title: "NiFe WARS: Last Defense",
+    summary: {
+      ua: "Промо-лендинг для tower defense гри NiFe WARS: Last Defense — стратегічне розміщення веж, прокачка та захист бази від хвиль ворогів.",
+      en: "Promotional landing page for the tower defense game *NiFe WARS: Last Defense* — featuring strategic tower placement, upgrades, and base defense against waves of enemies.",
+    },
+    fullDescription: {
+      ua: 'NiFe WARS: Last Defense — маркетинговий лендинг мобільної tower defense гри з детальним описом ігрових механік та закликом до завантаження.\n\nСайт послідовно розкриває цінність продукту: hero-секція з мокапом геймплею та кнопкою Google Play, блок "How to Play" з покроковим поясненням стратегії (побудова захисту, прокачка юнітів, управління ресурсами), сітка функцій з іконками (типи веж, прогресія, ворожі хвилі), а також фотогалерея скріншотів геймплею з каруселлю.\n\nДовіру підсилюють відгуки гравців з рейтингом та розділ FAQ з розгортуваними відповідями (accordion) на типові запитання.\n\nОсоблива увага приділена візуальній подачі: неонова кольорова гама, контрастні world/light-секції для ритму сторінки та адаптивна верстка під мобільні пристрої.',
+      en: 'NiFe WARS: Last Defense is a marketing landing page for a mobile tower defense game, featuring a detailed breakdown of the game mechanics and a call to download.\n\nThe site builds up the product\'s value step by step: a hero section with a gameplay mockup and a Google Play button, a "How to Play" block that walks through the strategy (building defenses, upgrading units, managing resources), a feature grid with icons (tower types, progression, enemy waves), and a gameplay screenshot gallery with a carousel.\n\nTrust is reinforced with rated player reviews and an FAQ section with expandable (accordion) answers to common questions.\n\nSpecial attention was given to the visual presentation: a neon color palette, contrasting dark/light sections for page rhythm, and a responsive layout for mobile devices.',
+    },
+    stack: ["React", "Vite", "Game Dev / Landing Page"],
+    images: [
+      "/images/projects/nife-wars.jpg",
+      "/images/projects/nife-wars-2.jpg",
+      "/images/projects/nife-wars-3.jpg",
+    ],
+    liveUrl: "https://andross-s.github.io/STP-12570/",
+    links: [
+      {
+        label: { en: "GitHub", ua: "GitHub" },
+        href: "https://github.com/andross-s/STP-12570",
+      },
+    ],
+  },
+{
+    id: "ecotote",
+    title: "EcoTote",
+    summary: {
+      ua: "Інтернет-магазин екотоварів з інтуїтивним каталогом, галереєю та формою зв'язку — приклад чистого UX для e-commerce.",
+      en: "An online store for eco-friendly products featuring an intuitive catalog, a gallery, and a contact form—an example of clean e-commerce UX.",
+    },
+    fullDescription: {
+      ua: "Інтернет-магазин екотоварів з інтуїтивним каталогом, галереєю та формою зв'язку — приклад чистого UX для e-commerce.",
+      en: "An e-commerce site for eco-friendly tote bags and accessories made from organic cotton, linen, and recycled materials, with a product catalog, gallery, and contact form.",
+    },
+    stack: ["HTML", "CSS", "JavaScript"],
+    images: [
+      "/images/projects/ecotote.jpg",
+      "/images/projects/ecotote-2.jpg",
+      "/images/projects/ecotote-3.jpg",
+    ],
+    liveUrl: "https://vfrost1310.github.io/project-ctf-group/",
+    links: [
+      {
+        label: { en: "GitHub", ua: "GitHub" },
+        href: "https://github.com/vfrost1310/project-ctf-group",
       },
     ],
   },
