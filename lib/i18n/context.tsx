@@ -9,6 +9,7 @@ import {
   type ReactNode,
 } from "react";
 import type { Locale } from "@/types";
+import { localeToHtmlLang } from "@/lib/utils";
 import type { Dictionary } from "./types";
 import en from "./en";
 import ua from "./ua";
@@ -37,7 +38,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    document.documentElement.lang = locale;
+    document.documentElement.lang = localeToHtmlLang(locale);
   }, [locale]);
 
   const setLocale = (next: Locale) => {

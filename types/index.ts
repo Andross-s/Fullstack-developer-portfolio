@@ -15,6 +15,7 @@ export interface Project {
   title: string;
   role?: LocalizedText;
   period?: string;
+  badge?: LocalizedText;
   summary: LocalizedText;
   fullDescription: LocalizedText;
   stack: string[];

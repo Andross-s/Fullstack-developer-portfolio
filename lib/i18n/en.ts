@@ -32,8 +32,8 @@ const en: Dictionary = {
     heading: "About Me",
     paragraphs: [
       "I am a Frontend/Full-Stack developer specializing in building modern web applications—from responsive layouts to server-side logic using Node.js.",
-      " My approach is simple: code should be not only functional but also fast, accessible, and maintainable for future product development. I consider every detail—from UX nuances to REST API architecture—to ensure the result aligns with actual business goals, not just the technical specifications.",
-      " I am open to collaborating on new projects, whether for one-off tasks or long-term partnerships.",
+      "Recently I shipped NaturALL (naturall.ge) — a production e-commerce platform with trilingual UI, online payments, loyalty, and an admin CMS. I care about the details that matter in real products: UX, REST API design, auth, and maintainable code that supports business goals—not just the ticket description.",
+      "I am open to collaborating on new projects, whether for one-off tasks or long-term partnerships.",
     ],
     highlight: "Available for freelance projects",
   },

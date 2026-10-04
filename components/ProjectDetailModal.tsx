@@ -2,8 +2,10 @@
 
 import { ExternalLink } from "lucide-react";
 import { Dialog } from "@/components/Dialog";
+import { GithubIcon } from "@/components/icons";
 import { ProjectGallery } from "@/components/ProjectGallery";
 import { useLocale } from "@/lib/i18n/context";
+import { isGitHubUrl } from "@/lib/utils";
 import type { Project } from "@/types";
 
 interface ProjectDetailModalProps {
@@ -36,9 +38,16 @@ export function ProjectDetailModal({
         />
 
         <div>
-          <h3 id={titleId} className="text-xl font-semibold text-foreground">
-            {project.title}
-          </h3>
+          <div className="flex flex-wrap items-center gap-2">
+            <h3 id={titleId} className="text-xl font-semibold text-foreground">
+              {project.title}
+            </h3>
+            {project.badge && (
+              <span className="rounded-full border border-accent/40 bg-accent-soft px-2.5 py-0.5 text-xs font-medium text-accent">
+                {project.badge[locale]}
+              </span>
+            )}
+          </div>
           {(project.role || project.period) && (
             <p className="mt-1 text-sm text-muted-foreground">
               {project.role && (
@@ -89,18 +98,25 @@ export function ProjectDetailModal({
           {project.links && project.links.length > 0 && (
             <>
               <h4 className="sr-only">{dict.projects.linksHeading}</h4>
-              {project.links.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-border px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
-                >
-                  <ExternalLink className="h-4 w-4" aria-hidden="true" />
-                  {link.label[locale]}
-                </a>
-              ))}
+              {project.links.map((link) => {
+                const github = isGitHubUrl(link.href);
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-border px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+                  >
+                    {github ? (
+                      <GithubIcon className="h-4 w-4" aria-hidden="true" />
+                    ) : (
+                      <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                    )}
+                    {link.label[locale]}
+                  </a>
+                );
+              })}
             </>
           )}
         </div>

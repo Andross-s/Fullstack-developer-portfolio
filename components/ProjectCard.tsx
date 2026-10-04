@@ -7,6 +7,7 @@ import { GithubIcon } from "@/components/icons";
 import { ProjectDetailModal } from "@/components/ProjectDetailModal";
 import type { Project } from "@/types";
 import { useLocale } from "@/lib/i18n/context";
+import { isGitHubUrl } from "@/lib/utils";
 
 const STACK_PREVIEW_LIMIT = 4;
 
@@ -17,6 +18,7 @@ export function ProjectCard({ project }: { project: Project }) {
   const visibleStack = project.stack.slice(0, STACK_PREVIEW_LIMIT);
   const hiddenStackCount = project.stack.length - visibleStack.length;
   const firstLink = project.links?.[0];
+  const firstLinkIsGitHub = firstLink ? isGitHubUrl(firstLink.href) : false;
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-accent/60">
@@ -35,9 +37,16 @@ export function ProjectCard({ project }: { project: Project }) {
       </button>
 
       <div className="flex flex-1 flex-col gap-3 p-5">
-        <h3 className="text-lg font-semibold text-foreground">
-          {project.title}
-        </h3>
+        <div className="flex flex-wrap items-center gap-2">
+          <h3 className="text-lg font-semibold text-foreground">
+            {project.title}
+          </h3>
+          {project.badge && (
+            <span className="rounded-full border border-accent/40 bg-accent-soft px-2.5 py-0.5 text-xs font-medium text-accent">
+              {project.badge[locale]}
+            </span>
+          )}
+        </div>
         <p className="flex-1 text-sm leading-relaxed text-muted-foreground">
           {project.summary[locale]}
         </p>
@@ -83,8 +92,14 @@ export function ProjectCard({ project }: { project: Project }) {
                 rel="noopener noreferrer"
                 className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-border px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
               >
-                <GithubIcon className="h-4 w-4" aria-hidden="true" />
-                {dict.projects.code}
+                {firstLinkIsGitHub ? (
+                  <GithubIcon className="h-4 w-4" aria-hidden="true" />
+                ) : (
+                  <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                )}
+                {firstLinkIsGitHub
+                  ? dict.projects.code
+                  : firstLink.label[locale]}
               </a>
             )}
           </div>
